@@ -1,6 +1,7 @@
 import java.util.HashMap;
-
 import java.util.Map;
+
+//import java.util.Map.*;
 
 import spark.ModelAndView;
 
@@ -12,11 +13,13 @@ import static spark.Spark.staticFileLocation;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public"); //link spark to photo directory
-        Spark.get("/hello", (request, response) -> {
-            return new ModelAndView(new HashMap(), "hello.hbs");
+        Spark.get("/", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "hello.hbs");
         }, new HandlebarsTemplateEngine());
         Spark.get("/favorite_photos", (request, response) -> {
-            return new ModelAndView(new HashMap(), "favorite_photos.hbs");
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "favorite_photos.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

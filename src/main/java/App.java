@@ -13,6 +13,11 @@ import static spark.Spark.staticFileLocation;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public"); //link spark to photo directory
+        Spark.get("/form", (request, response) -> {
+            Map<String, Object> model =new HashMap<>();
+            return new ModelAndView(model, "form.hbs");
+        }, new HandlebarsTemplateEngine());
+
         Spark.get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "hello.hbs");

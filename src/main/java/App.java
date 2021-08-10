@@ -18,6 +18,17 @@ public class App {
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        Spark.get("/greeting_card", (request, response) -> {
+            Map<String, Object> model =new HashMap<>();
+            String recipient = request.queryParams("recipient");
+            String location = request.queryParams("location");
+            String sender = request.queryParams("sender");
+            model.put("recipient", recipient);
+            model.put("location" , location);
+            model.put("sender", sender);
+            return new ModelAndView(model, "greeting_card.hbs");
+        }, new HandlebarsTemplateEngine());
+
         Spark.get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "hello.hbs");

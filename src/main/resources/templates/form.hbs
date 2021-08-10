@@ -3,18 +3,24 @@
 {{/partial}}
 <!--form template-->
 {{#partial "content"}}
+<div class="bg-success">
     <h1>Fill in your name and your friend's name to create your custom greeting!</h1>
-    <form action='/greeting_card'>
+    <form class="" action='/greeting_card'>
         <div class="form-group">
             <label for="sender">Your name</label>
-            <input id="sender" name="sender" class="form-control" type="text">
+            <input id="sender" name="sender" class="form-control" type="text" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Your location</label>
+            <input id="location" name="location" class="form-control" type="text" required>
         </div>
         <div class="form-group">
             <label for="recipient">Your friend's name</label>
-            <input id="recipient" name="recipient" class="form-control" type="text">
+            <input id="recipient" name="recipient" class="form-control" type="text" required>
         </div>
-        <button type="submit" class="btn">Go!</button>
+        <button type="submit" class="btn btn-secondary">Go!</button>
     </form>
+</div>
 {{/partial}}
 <!--form template-->
 
